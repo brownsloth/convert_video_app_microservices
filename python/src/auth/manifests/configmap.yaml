@@ -1,0 +1,12 @@
+#this file sets env variables within the container, which aren't that sensitive
+#we'll have a separate file for sensitive data: secret.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: auth-configmap
+data:
+  # access the host of the kubernetes cluster (which is in our case, our local machine)
+  MYSQL_HOST: host.minikube.internal
+  MYSQL_USER: auth_user
+  MYSQL_DB: auth
+  MYSQL_PORT: "3306"
